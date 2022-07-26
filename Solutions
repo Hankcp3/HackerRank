@@ -40,6 +40,35 @@ def minimumAbsoluteDifference(arr):
     for i in range(len(arr)-1):
         diffs.append(abs(arr[i]-arr[i+1]))
     return min(diffs)
+    
+#3
+# Complete the 'luckBalance' function below.
+#
+# The function is expected to return an INTEGER.
+# The function accepts following parameters:
+#  1. INTEGER k
+#  2. 2D_INTEGER_ARRAY contests
+#
+
+def luckBalance(k, contests):
+    x,y = [],[]
+    for i in range(len(contests)):
+        x.append(contests[i][0])
+        y.append(contests[i][1])
+    contest_new = [x,y]
+
+    count = 0
+    list1= []
+    for i in range(0,len(contest_new[1])):
+        if contest_new[1][i] == 0:
+            count += contest_new[0][i]
+        else:
+            list1.append(contest_new[0][i])
+
+    temp = sorted(list1)[::-1]
+    count += sum(temp[0:k])
+    count -= sum(temp[k:len(temp)])
+    return count
 
 
 
