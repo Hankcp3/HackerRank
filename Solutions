@@ -33,6 +33,7 @@ for i in range(len(arr)-1):
             if temp<min1:
                 min1 = temp
 return min1
+
 #simple way:
 def minimumAbsoluteDifference(arr):
     diffs = []
@@ -69,7 +70,29 @@ def luckBalance(k, contests):
     count += sum(temp[0:k])
     count -= sum(temp[k:len(temp)])
     return count
-
+    
+#4
+# Complete the 'whatFlavors' function below.
+#
+# The function accepts following parameters:
+#  1. INTEGER_ARRAY cost
+#  2. INTEGER money
+def whatFlavors(cost, money):
+    a  = enumerate(cost,1)
+    dict1 = {k:v for k,v in a}
+    for i in range(len(dict1)):
+        for j in range(0,len(dict1)):
+            if i!=j:
+                if list(dict1.values())[i] + list(dict1.values())[j] == money:
+                    if list(dict1.keys())[i] < list(dict1.keys())[j]:
+                        small_ID = list(dict1.keys())[i]
+                        large_ID = list(dict1.keys())[j]
+                    else:
+                        small_ID = list(dict1.keys())[j]
+                        large_ID = list(dict1.keys())[i]
+    print(small_ID, large_ID)
+                    
+                
 
 
 
