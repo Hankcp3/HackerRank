@@ -1,4 +1,4 @@
-Make use of sorted, Counter, dict to solve problems.
+Make use of sorted, Counter, dict, enumerate to solve problems.
 # 1
 #Complete the 'makeAnagram' function below.
 #
