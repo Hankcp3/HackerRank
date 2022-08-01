@@ -1,0 +1,20 @@
+There will be two arrays of integers. Determine all integers that satisfy the following two conditions:
+
+The elements of the first array are all factors of the integer being considered
+The integer being considered is a factor of all elements of the second array
+These numbers are referred to as being between the two arrays. Determine how many such numbers exist.
+
+def getTotalX(a, b):
+    list1 = []
+    for i in range(a[-1],b[0]+1):
+        if all([i % j == 0 for j in a]):
+            list1.append(i)
+    list2 = []
+    for y in list1:
+        if all([x % y == 0 for x in b]):
+                list2.append(y)
+    return len(list2)
+    
+  TIPs: if two lists have same range, use zip:
+  for i, j in zip(range(x), range(y)):
+    # Stuff...
