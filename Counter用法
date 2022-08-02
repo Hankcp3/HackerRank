@@ -1,0 +1,9 @@
+from collections import Counter
+def func1():
+  list1 = {k:v for k,v in Counter(ar).items()}
+  max_value =  max(list1.values())
+  compare_list = []
+  for i in list1.keys():
+      if list1[i] == max_value:
+          compare_list.append(i)
+  return min(compare_list)
