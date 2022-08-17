@@ -1,3 +1,4 @@
+1. generate all the element combination in a list
 from itertools import chain, combinations
 def powerset(items):
     l_items = list(items)
