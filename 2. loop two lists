@@ -19,3 +19,8 @@ def getTotalX(a, b):
   TIPs: if two lists have same range, use zip:
   for i, j in zip(range(x), range(y)):
     # Stuff...
+    
+  3:
+      for i in range (len(topic)):
+        for j in range(i+1,len(topic)):
+            m=compare(topic[i],topic[j])
