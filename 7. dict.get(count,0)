@@ -1,0 +1,9 @@
+def acmTeam(topic):
+    map = {}
+    max_topic = 0
+    for i in range(len(topic)):
+        for j in range(i+1, len(topic)):
+            count = bin(int("0b{}".format(topic[i]), 2) | int("0b{}".format(topic[j]), 2)).count("1")
+            max_topic = max(max_topic, count)
+            map[count] = map.get(count,0) + 1
+    return max_topic, map[max_topic]
