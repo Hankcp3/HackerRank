@@ -1,0 +1,14 @@
+def happyLadybugs(b):
+    
+    if '_' not in b:
+        c = [(lb, len(list(cnt))) for lb, cnt in itertools.groupby(b)]
+    else:
+        b = list(b)
+        b.sort()
+        c = [(lb, len(list(cnt))) for lb, cnt in itertools.groupby(b)]
+    
+    for lb, cnt in c:
+        if cnt == 1 and lb != '_':
+            return 'NO'
+        
+    return 'YES'
