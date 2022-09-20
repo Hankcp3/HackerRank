@@ -5,3 +5,8 @@ def powerset(items):
     return chain.from_iterable(combinations(l_items, r) for r in range(len(l_items) + 1))
     
 print(list(powerset(arr)))
+
+
+2. generate all the permutation in a list
+import itertools
+list(itertools.permutations([1, 2, 3]))
