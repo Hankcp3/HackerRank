@@ -92,7 +92,55 @@ def whatFlavors(cost, money):
                         large_ID = list(dict1.keys())[i]
     print(small_ID, large_ID)
                     
-                
+ #5 bomberMan
+import copy
+def bomberMan(n, grid):
+    def boom(grid):
+        def formlist1(grid):
+            list1=[]
+            for i in range(len(grid)):
+                for j in range(len(grid[i])):
+                    if grid[i][j]=='O':
+                        list1.append((i,j))
+            return list1
+
+        set1 = formlist1(grid)
+        grid = copy.deepcopy(zerogrid)
+        for tup in set1:
+            grid[tup[0]][tup[1]] = '.'
+         #left
+            if tup[0]-1 in range(row):
+                grid[tup[0]-1][tup[1]] = '.'
+
+          #right
+            if tup[0]+1 in range(row):
+                grid[tup[0]+1][tup[1]] = '.'
+
+          #up
+            if tup[1]-1 in range(col):
+                grid[tup[0]][tup[1]-1] = '.'
+
+          #down
+            if tup[1]+1 in range(col):
+                grid[tup[0]][tup[1]+1] = '.'
+
+        return [''.join(i) for i in grid]
+    
+    row = len(grid)
+    col = len(grid[0])
+    zerogrid = [list(i.replace(".", "O" )) for i in grid]
+    
+    if n ==1:
+        return grid
+    if n%2 == 0:
+        return [''.join(i) for i in zerogrid]
+    
+    thirdGrid = boom(grid)
+    fithGrid = boom(thirdGrid)
+    return fithGrid if ((n - 1) / 2) % 2 == 0 else thirdGrid
+    
+
+    
 
 
 
