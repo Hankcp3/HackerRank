@@ -1,0 +1,15 @@
+The extend() method adds all the elements of an iterable (list, tuple, string etc.)
+
+def closestNumbers(arr):
+    arr.sort()
+    output = []
+    minimum = arr[1] - arr[0]
+    for i in range(1, len(arr)): 
+        diff = arr[i] - arr[i-1]
+        if diff == minimum: 
+            output.extend([arr[i-1], arr[i]])
+        if diff < minimum: 
+            minimum = diff 
+            output = [arr[i-1], arr[i]]
+    
+    return output
